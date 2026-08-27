@@ -28,7 +28,7 @@ function OpeningAnime() {
       {},
       {
         duration: 1,
-      }
+      },
     )
     .to(openingImg, {
       duration: 2,
@@ -40,7 +40,7 @@ function OpeningAnime() {
       {},
       {
         duration: 1,
-      }
+      },
     )
     .to([opening, openingImg], {
       duration: 1,
@@ -82,7 +82,6 @@ webStorage();
 
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ ！！リンク先スムーススクロール！！ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
-// １番目
 function scrollToHeading() {
   const link = document.querySelectorAll('a[href^="#"]');
   const linkPage = document.querySelectorAll(".js_link-page");
@@ -91,20 +90,30 @@ function scrollToHeading() {
     a.addEventListener("click", (event) => {
       event.preventDefault();
 
-      // getBoundingClientRect()のtopやyはビューポートの位置から取得しているため、相対的な数値になる
-      const linkPagePostionY = linkPage[index].getBoundingClientRect().top;
-
-      // topだったら、0のまま
-      let linkPageScrollPositionY = 0;
-      if (linkPage[index].id !== "top") {
-        linkPageScrollPositionY = Math.floor(linkPagePostionY + window.scrollY);
+      // ★追加：もしリンク先が "#top" だったら、一番上へスクロールして処理を終わる
+      const targetId = a.getAttribute("href");
+      if (targetId === "#top") {
+        window.scrollTo({
+          behavior: "smooth",
+          top: 0,
+          left: 0,
+        });
+        return; // ここでストップさせることで、下のエラーを防ぎます
       }
 
-      window.scrollTo({
-        behavior: "smooth",
-        top: linkPageScrollPositionY,
-        left: 0,
-      });
+      // 目的地の要素がちゃんと存在する場合だけ、今まで通りインデックスで計算する
+      if (linkPage[index]) {
+        const linkPagePostionY = linkPage[index].getBoundingClientRect().top;
+        const linkPageScrollPositionY = Math.floor(
+          linkPagePostionY + window.scrollY,
+        );
+
+        window.scrollTo({
+          behavior: "smooth",
+          top: linkPageScrollPositionY,
+          left: 0,
+        });
+      }
     });
   });
 }
@@ -112,42 +121,6 @@ function scrollToHeading() {
 window.addEventListener("DOMContentLoaded", () => {
   scrollToHeading();
 });
-
-// ２番目
-// function scrollToHeading() {
-//   // 修正1: セレクタを a[href="#"] に
-//   const links = document.querySelectorAll('a[href="#"]');
-//   // 毎回探さずに一度だけ取得
-//   const linkPages = document.querySelectorAll('.js_link-page');
-
-//   links.forEach((a, index) => {
-//     a.addEventListener('click', (event) => {
-//       event.preventDefault();
-
-//       const target = linkPages[index];
-//       if (!target) return; // 対応する要素がなければ何もしない
-
-//       // 固定ヘッダー分のオフセット（任意）
-//       const header = document.querySelector('.l_header');
-//       const offset = header ? header.offsetHeight : 0;
-
-//       const linkPagePositionY = Math.floor(
-//         target.getBoundingClientRect().top + window.scrollY - offset
-//       );
-
-//       // 修正2: top を指定（left は0のままでOK）
-//       window.scrollTo({
-//         top: linkPagePositionY,
-//         left: 0,
-//         behavior: 'smooth',
-//       });
-//     });
-//   });
-// }
-
-// window.addEventListener('DOMContentLoaded', () => {
-//   scrollToHeading();
-// });
 
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ ！！TOP KV スライドアニメーション！！ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 const slideshow = new Swiper(".js_slideshow", {
@@ -221,7 +194,7 @@ function parallax() {
   // document.querySelectorAll で枠要素を全部取得（NodeList）し、Array#slice を使って配列に変換して targets に
   const targets = Array.prototype.slice.call(
     document.querySelectorAll(targetClass),
-    0
+    0,
   );
   // 対象が1つもなければ処理をやめる
   if (targets.length === 0) return false;

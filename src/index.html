@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -20,7 +20,7 @@
     <meta property="og:site_name" content="Cafe & Moments Noste" />
     <meta
       property="og:url"
-      content="https://zero-plus.io/lesson/ogp/hp_ogp.jpg"
+      content="https://student.zero-plus-test.xyz/production/02-28/WebP/cafeNoste_OGP.webp"
     />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Cafe Nosté" />
@@ -30,7 +30,7 @@
     />
     <meta
       property="og:image"
-      content="https://zero-plus.io/lesson/ogp/hp_ogp.jpg"
+      content="https://student.zero-plus-test.xyz/production/02-28/WebP/cafeNoste_OGP.webp"
     />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -40,7 +40,7 @@
     />
     <meta
       name="twitter:image:src"
-      content="https://zero-plus.io/lesson/ogp/hp_ogp.jpg"
+      content="https://student.zero-plus-test.xyz/production/02-28/WebP/cafeNoste_OGP.webp"
     />
 
     <!-- google fonts -->
@@ -53,17 +53,40 @@
 
     <!-- css -->
     <link rel="stylesheet" href="css/reset.css" />
+    <!-- リセットCSSのすぐ下にスワイパー -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
-    <!-- GSAP スクロールトリガー & js -->
+    <!-- GSAP スクロールトリガー スワイパー & js -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="js/main.js" defer></script>
+
+    <!-- ワードプレス　ヘッダー動作タグ記述 -->
   </head>
 
-  <body class="js_body">
-    <header class="l_header">
+  <body class="js_body js_opening-body">
+    <div class="m_opening js_opening">
+      <div class="m_opening-img_block">
+        <div class="m_opening-img_box js_opening-img">
+          <img
+            src="./WebP/logo_01.webp"
+            alt="カフェのロゴ"
+            width="132"
+            height="60"
+            class="m_opening-img"
+          />
+        </div>
+      </div>
+    </div>
+    <header class="l_header js_link-page" id="top">
       <h1 class="l_header-logo">
-        <a href="" class="l_header-logo_link">
+        <!-- aタグ＆imgタグ　エスケープ処理と絶対パス記述 -->
+        <a href="./WebP/logo_01.webp" class="l_header-logo_link">
           <img
             src="./WebP/logo_01.webp"
             alt="カフェのロゴ"
@@ -75,8 +98,9 @@
       </h1>
       <nav class="l_header-nav js_nav">
         <ul class="l_header-nav_list">
+          <!-- aタグ＆imgタグ　エスケープ処理と絶対パス記述 -->
           <li class="l_header-nav_item">
-            <a href="" class="l_header-nav_link">Top</a>
+            <a href="#top" class="l_header-nav_link">Top</a>
           </li>
           <li class="l_header-nav_item">
             <a href="#about" class="l_header-nav_link">About</a>
@@ -94,6 +118,7 @@
             <a href="#contact" class="l_header-nav_link">Contact</a>
           </li>
           <li class="l_header-nav_item">
+            <!-- 外部リンクはそのまま　img部分を記述 -->
             <a
               href="https://about.instagram.com/ja-jp"
               class="l_header-nav_link"
@@ -117,6 +142,8 @@
       </button>
       <!-- ハンバーガーメニュー -->
     </header>
+    <!-- ヘッダーの呼び出し記述 -->
+    <!-- キービジュアル -->
     <div class="top_kv">
       <div class="top_kv_inner">
         <div class="top_kv_box">
@@ -124,46 +151,107 @@
         </div>
       </div>
     </div>
-    <!-- top_kv -->
+    <!-- TOP KV スライドショー -->
+    <div class="top_kv-slideshow swiper js_slideshow">
+      <div class="swiper-wrapper">
+        <div class="top_kv-slideshow_slide swiper-slide">
+          <img
+            src="./WebP/img_top.webp"
+            alt="カフェ店内の写真"
+            width="3762"
+            height="2581"
+            class="top_kv-slideshow_slide_img"
+          />
+        </div>
+        <div class="top_kv-slideshow_slide swiper-slide">
+          <img
+            src="./WebP/img_top_02.webp"
+            alt="カフェ店内の写真"
+            width="1280"
+            height="947"
+            class="top_kv-slideshow_slide_img"
+          />
+        </div>
+        <div class="top_kv-slideshow_slide swiper-slide">
+          <img
+            src="./WebP/img_top_03.webp"
+            alt="ラテアートの写真"
+            width="1280"
+            height="855"
+            class="top_kv-slideshow_slide_img"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- top_kv終わり -->
     <main class="l_main">
-      <section class="top_about-section">
-        <div class="top_about_contents">
-          <div class="top_about_main-img_box">
-            <img
-              src="./WebP/img_about_01.webp"
-              alt="Nosté店主の写真"
-              width="1280"
-              height="853"
-              class="top_about_main-img"
-            />
+      <!-- aboutセクション -->
+      <section id="about" class="top_about-section js_link-page">
+        <div class="top_about-wrapper">
+          <div class="top_about_contents">
+            <!-- 見せ窓「js-parallax-elm-box」 -->
+            <div class="top_about_main-img_box js-parallax-elm-box">
+              <!-- 動かす要素「js-parallax-elm」 -->
+              <div class="js-parallax-elm">
+                <img
+                  src="./WebP/img_about_01.webp"
+                  alt="Nosté店主の写真"
+                  width="1280"
+                  height="853"
+                  class="top_about_main-img js_img-fadein"
+                />
+              </div>
+            </div>
+            <div class="top_about-main_box">
+              <h2 class="top_about_ttl">
+                Nostéの想い
+                <!-- <a name="about">Nostéの想い</a> -->
+              </h2>
+              <p class="top_about_txt">
+                〜Nosté（ノステ）〜とは「Nostalgia」と「Nouveau」を掛け合わせた造語です。<br />
+                どこか懐かしさを感じつつも時代とともに新しい挑戦を続けていきたい、そんな私たちの想いがこもっています。
+              </p>
+            </div>
           </div>
-          <div class="top_about-main_box">
-            <h2 class="top_about_ttl">
-              <a name="about">Nostéの想い</a>
-            </h2>
-            <p class="top_about_txt">
-              〜Nosté（ノステ）〜とは「Nostalgia」と「Nouveau」を掛け合わせた造語です。<br />
-              どこか懐かしさを感じつつも時代とともに新しい挑戦を続けていきたい、そんな私たちの想いがこもっています。
-            </p>
+          <div class="top_about_sub-img__block">
+            <div class="top_about_sub-img__box js-parallax-elm-box">
+              <div class="js-parallax-elm">
+                <img
+                  src="./WebP/img_about_07.webp"
+                  alt="コーヒーの写真"
+                  width="760"
+                  height="800"
+                  class="top_about_sub-img js_img-fadein"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <!-- aboutセクション -->
-      <section class="top_commitment-section">
+      <!-- aboutセクション終わり -->
+      <!-- こだわりセクション -->
+      <!-- <div id="commitment"></div> -->
+      <section
+        id="commitment"
+        class="top_commitment-section js_link-page js-scroll-overlap"
+      >
         <div class="top_commitment_contents">
           <div class="top_commitment_block coffee">
             <div class="top_commitment-img_box coffee">
+              <!-- <div class="js-parallax-elm"> -->
               <img
                 src="./WebP/img_about_03.webp"
                 alt="コーヒーを煎る画像"
                 width="1280"
                 height="853"
-                class="top_commitment-img coffee"
+                class="top_commitment-img coffee js_img-fadein"
               />
+              <!-- </div> -->
             </div>
             <div class="top_commitment-txt_box coffee">
               <h3 class="m_commitment_ttl">
-                <a name="commitment">コーヒー豆へのこだわり</a>
+                コーヒー豆へのこだわり
+                <!-- <a name="commitment">コーヒー豆へのこだわり</a> -->
               </h3>
               <p class="m_commitment_txt">
                 使用しているのは全てフェアトレードのコーヒー豆。<br />
@@ -174,7 +262,8 @@
             </div>
           </div>
           <div class="top_commitment_block hand">
-            <div class="top_commitment-img_box hand">
+            <div class="top_commitment-img_box hand js_img-fadein">
+              <!-- <div class="js-parallax-elm"> -->
               <img
                 src="./WebP/img_about_04.webp"
                 alt="店主がコーヒーを入れる画像"
@@ -182,6 +271,7 @@
                 height="427"
                 class="top_commitment-img hand"
               />
+              <!-- </div> -->
             </div>
             <div class="top_commitment-txt_box hand">
               <h3 class="m_commitment_ttl">ハンドドリップへのこだわり</h3>
@@ -196,13 +286,15 @@
           </div>
           <div class="top_commitment_block space">
             <div class="top_commitment-img_box space">
+              <!-- <div class="js-parallax-elm"> -->
               <img
                 src="./WebP/img_about_06.webp"
                 alt="店内の画像"
                 width="3012"
                 height="2008"
-                class="top_commitment-img space"
+                class="top_commitment-img space js_img-fadein"
               />
+              <!-- </div> -->
             </div>
             <div class="top_commitment-txt_box space">
               <h3 class="m_commitment_ttl">空間へのこだわり</h3>
@@ -216,25 +308,28 @@
           </div>
         </div>
       </section>
-      <!-- こだわりセクション -->
+      <!-- こだわりセクション終わり -->
+      <!-- セクション間画像 -->
       <section class="top_image-section">
-        <div class="m_image-box">
-          <img
-            src="./WebP/img_coffee_01.webp"
-            alt="コーヒーカップの画像"
-            width="1280"
-            height="853"
-            class="m_image-img coffee_top"
-          />
+        <div class="m_image-box js-parallax-elm-box">
+          <!-- 動かす要素「js-parallax-elm」 -->
+          <div class="js-parallax-elm">
+            <img
+              src="./WebP/img_coffee_01.webp"
+              alt="コーヒーカップの画像"
+              width="1280"
+              height="853"
+              class="m_image-img coffee_top"
+            />
+          </div>
         </div>
       </section>
-      <!-- セクション間の画像 -->
-      <section class="m_menu-section lunch">
+      <!-- セクション間の画像終わり -->
+      <!-- ランチメニューセクション -->
+      <section id="menu" class="m_menu-section lunch js_link-page">
         <div class="m_menu_contents lunch">
           <div class="m_menu-copy_box">
-            <h3 class="m_menu-copy_ttl">
-              <a name="menu">ランチセット</a>
-            </h3>
+            <h3 class="m_menu-copy_ttl">ランチセット</h3>
             <p class="m_menu-copy_sub-ttl">（Lunch time 11:00~14：00）</p>
             <p class="m_menu-copy_sub-txt">
               ミニサラダ＆ドリンク付き（ドリンクメニューよりお好きなドリンクが選べます）
@@ -242,8 +337,8 @@
               ランチセットはすべて1,200円です
             </p>
           </div>
-          <div class="m_menu-group__lunch">
-            <div class="m_menu_box">
+          <div class="m_menu-group__lunch js_slide-trigger">
+            <div class="m_menu_box js_slide js_slide js_slide">
               <div class="m_menu_img__block">
                 <img
                   src="./WebP/food_omelet-rice.webp"
@@ -257,7 +352,7 @@
               <p class="m_menu_price__lunch">¥1,200-</p>
               <p class="m_menu_txt__lunch">ミニサラダ、ドリンク付き</p>
             </div>
-            <div class="m_menu_box">
+            <div class="m_menu_box js_slide js_slide js_slide">
               <div class="m_menu_img__block">
                 <img
                   src="./WebP/food_carbonara.webp"
@@ -271,7 +366,7 @@
               <p class="m_menu_price__lunch">¥1,200-</p>
               <p class="m_menu_txt__lunch">ミニサラダ、ドリンク付き</p>
             </div>
-            <div class="m_menu_box">
+            <div class="m_menu_box js_slide js_slide js_slide">
               <div class="m_menu_img__block">
                 <img
                   src="./WebP/food_egg-sandwich.webp"
@@ -288,15 +383,16 @@
           </div>
         </div>
       </section>
-      <!-- ランチメニューセクション -->
+      <!-- ランチメニューセクション終わり -->
+      <!-- ドリンクメニューセクション -->
       <section class="m_menu-section drink">
         <div class="m_menu_contents">
           <div class="m_menu_container">
             <div class="m_menu-copy_box">
               <h3 class="m_menu-copy_ttl">ドリンクメニュー</h3>
             </div>
-            <div class="m_menu-group">
-              <div class="m_menu_box">
+            <div class="m_menu-group js_slide-trigger">
+              <div class="m_menu_box js_slide js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_hot-coffee.webp"
@@ -312,7 +408,7 @@
                   丁寧にハンドドリップした、香り高く深味のある味わい
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_ice-coffee.webp"
@@ -328,7 +424,7 @@
                   雑味のないすっきりとした後味を追求した、キレのある一杯
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_espresso.webp"
@@ -344,7 +440,7 @@
                   濃厚な旨みと芳ばしさを凝縮した、キレのある目覚めの一杯
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_cold-brew.webp"
@@ -360,7 +456,7 @@
                   じっくり時間をかけて水出ししたまろやかでクリアな味わい
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_caffe-e-llatte.webp"
@@ -376,7 +472,7 @@
                   エスプレッソのコクとミルクの甘みが溶け合うやさしい味わい
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_ice-caffe-e-llatte.webp"
@@ -392,7 +488,7 @@
                   コク深いエスプレッソに冷たいミルクを注いだまろやかな味わい
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_cafe-mocha.webp"
@@ -408,7 +504,7 @@
                   ビターなエスプレッソとチョコレートが重なる甘くほろ苦いご褒美の一杯
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_ice-cafe-mocha.webp"
@@ -424,7 +520,7 @@
                   ひんやりミルクとチョコの甘さが広がる夏のカフェデザート感覚
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/drink_affogato.webp"
@@ -444,15 +540,16 @@
           </div>
         </div>
       </section>
-      <!-- ドリンクメニューセクション -->
-      <section class="m_menu-section food">
+      <!-- ドリンクメニューセクション終わり -->
+      <!-- フードメニューセクション -->
+      <section class="m_menu-section food js-scroll-overlap">
         <div class="m_menu_contents">
           <div class="m_menu_container">
             <div class="m_menu-copy_box">
               <h3 class="m_menu-copy_ttl">フードメニュー</h3>
             </div>
-            <div class="m_menu-group">
-              <div class="m_menu_box">
+            <div class="m_menu-group js_slide-trigger">
+              <div class="m_menu_box js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/food_omelet-rice.webp"
@@ -468,7 +565,7 @@
                   バター香るふんわり玉子とケチャップライスの優しい味わい
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/food_napolitain.webp"
@@ -484,7 +581,7 @@
                   国産たまねぎとソーセージを使用した昔ながらの懐かしい味
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/food_sandwich.webp"
@@ -500,7 +597,7 @@
                   オリーブオイル仕立てのツナと、半熟卵の素材を活かしたサンド
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/food_hamburg.webp"
@@ -516,7 +613,7 @@
                   国産合挽き肉を手ごねで仕上げたハンバーグとおろしポン酢の逸品
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/food_curry-doria.webp"
@@ -532,7 +629,7 @@
                   数種のスパイス香るカレーピラフにコク深いホワイトソースとチーズを重ねた1皿
                 </p>
               </div>
-              <div class="m_menu_box">
+              <div class="m_menu_box js_slide">
                 <div class="m_menu_img__block">
                   <img
                     src="./WebP/food_quiche.webp"
@@ -552,53 +649,69 @@
           </div>
         </div>
       </section>
-      <!-- フードメニューセクション -->
+      <!-- フードメニューセクション終わり -->
+      <!-- セクション間の画像 -->
       <section class="top_image-section">
-        <div class="m_image-box">
-          <img
-            src="./WebP/img_coffee_01.webp"
-            alt="コーヒーカップの画像"
-            width="1280"
-            height="853"
-            class="m_image-img coffee_bottom"
-          />
+        <div class="m_image-box js-parallax-elm-box">
+          <!-- 動かす要素「js-parallax-elm」 -->
+          <div class="js-parallax-elm">
+            <img
+              src="./WebP/img_coffee_01.webp"
+              alt="コーヒーカップの画像"
+              width="1280"
+              height="853"
+              class="m_image-img coffee_bottom"
+            />
+          </div>
         </div>
       </section>
-      <!-- セクション間の画像 -->
-      <section class="top_address-section">
+      <!-- セクション間の画像終わり -->
+      <!-- アドレスセクション -->
+      <!-- <div id="address"></div> -->
+      <section
+        id="address"
+        class="top_address-section js-scroll-overlap js_link-page"
+      >
         <div class="top_address_contents">
-          <h2 class="top_address_ttl">
-            <a name="address">店舗情報</a>
-          </h2>
+          <h2 class="top_address_ttl">店舗情報</h2>
         </div>
         <div class="top_address_group">
           <div class="top_address-img_box">
-            <div class="top_address-img_block">
-              <img
-                src="./WebP/address_1.webp"
-                alt="店内の画像"
-                width="3024"
-                height="4032"
-                class="top_address-img__left"
-              />
+            <div class="top_address-img_block js-parallax-elm-box">
+              <!-- 動かす要素「js-parallax-elm」 -->
+              <div class="js-parallax-elm">
+                <img
+                  src="./WebP/address_1.webp"
+                  alt="店内の画像"
+                  width="3024"
+                  height="4032"
+                  class="top_address-img__left"
+                />
+              </div>
             </div>
-            <div class="top_address-img_block">
-              <img
-                src="./WebP/address_2.webp"
-                alt="店内の画像"
-                width="3024"
-                height="4032"
-                class="top_address-img__center"
-              />
+            <div class="top_address-img_block js-parallax-elm-box">
+              <!-- 動かす要素「js-parallax-elm」 -->
+              <div class="js-parallax-elm">
+                <img
+                  src="./WebP/address_2.webp"
+                  alt="店内の画像"
+                  width="3024"
+                  height="4032"
+                  class="top_address-img__center"
+                />
+              </div>
             </div>
-            <div class="top_address-img_block">
-              <img
-                src="./WebP/address_3.webp"
-                alt="店内の画像"
-                width="3024"
-                height="4032"
-                class="top_address-img__right"
-              />
+            <div class="top_address-img_block js-parallax-elm-box">
+              <!-- 動かす要素「js-parallax-elm」 -->
+              <div class="js-parallax-elm">
+                <img
+                  src="./WebP/address_3.webp"
+                  alt="店内の画像"
+                  width="3024"
+                  height="4032"
+                  class="top_address-img__right"
+                />
+              </div>
             </div>
           </div>
           <div class="top_address-data_box">
@@ -660,30 +773,34 @@
                 最新情報は各SNSをご覧ください。
               </div>
               <div class="top_address-data_icon__box">
-                <a
-                  href="https://about.instagram.com/ja-jp"
-                  class="top_address-data_ico__link"
-                >
-                  <img
-                    src="./WebP/icon_Instagram.webp"
-                    alt="インスタのアイコン"
-                    width="40"
-                    height="40"
-                    class="top_address-data_icon__insta"
-                  />
-                </a>
-                <a
-                  href="https://x.com/xcorpjp"
-                  class="top_address-data_ico__link"
-                >
-                  <img
-                    src="./WebP/icon_x.webp"
-                    alt="Xのアイコン"
-                    width="40"
-                    height="40"
-                    class="top_address-data_icon__x"
-                  />
-                </a>
+                <div class="top_address-data_icon__block">
+                  <a
+                    href="https://about.instagram.com/ja-jp"
+                    class="top_address-data_icon__link"
+                  >
+                    <img
+                      src="./WebP/icon_Instagram.webp"
+                      alt="インスタのアイコン"
+                      width="40"
+                      height="40"
+                      class="top_address-data_icon__insta"
+                    />
+                  </a>
+                </div>
+                <div class="top_address-data_icon__block">
+                  <a
+                    href="https://x.com/xcorpjp"
+                    class="top_address-data_icon__link"
+                  >
+                    <img
+                      src="./WebP/icon_x.webp"
+                      alt="Xのアイコン"
+                      width="40"
+                      height="40"
+                      class="top_address-data_icon__x"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -701,20 +818,25 @@
           </iframe>
         </div>
       </section>
-      <!-- アドレスセクション -->
+      <!-- アドレスセクション終わり -->
+      <!-- セクション間の画像 -->
       <section class="top_image-section">
-        <div class="m_image-box">
-          <img
-            src="./WebP/img_coffee_02.webp"
-            alt="コーヒーカップの画像"
-            width="1280"
-            height="853"
-            class="m_image-img coffee_bottom"
-          />
+        <div class="m_image-box js-parallax-elm-box">
+          <!-- 動かす要素「js-parallax-elm」 -->
+          <div class="js-parallax-elm">
+            <img
+              src="./WebP/img_coffee_02.webp"
+              alt="コーヒーカップの画像"
+              width="1280"
+              height="853"
+              class="m_image-img coffee_bottom"
+            />
+          </div>
         </div>
       </section>
-      <!-- セクション間の画像 -->
-      <section class="top_contact-section">
+      <!-- セクション間の画像 終わり -->
+      <!-- お問い合わせセクション-->
+      <section id="contact" class="top_contact-section js_link-page">
         <div class="top_contact-ttl_group">
           <h2 class="top_contact-ttl">
             <a name="contact">お問い合わせ</a>
@@ -791,11 +913,13 @@
           </div>
         </form>
       </section>
-      <!-- お問い合わせセクション -->
+      <!-- お問い合わせセクション 終わり -->
+      <!-- フッターの呼び出し -->
       <footer class="l_footer">
         <div class="l_footer_contents">
           <div class="l_footer_info">
-            <a href="" class="l_footer_info-logo">
+            <!-- aタグ＆imgタグ　エスケープ処理と絶対パス記述 -->
+            <a href="#top" class="l_footer_info-logo">
               <img
                 src="./WebP/logo_01.webp"
                 alt="ノステのロゴ"
@@ -805,27 +929,33 @@
               />
             </a>
             <div class="l_footer_info-icon__box">
-              <a
-                href="https://about.instagram.com/ja-jp"
-                class="l_footer_info-icon"
-              >
-                <img
-                  src="./WebP/icon_Instagram.webp"
-                  alt="インスタグラムのアイコン"
-                  width="40"
-                  height="40"
-                  class="footer_info-icon__insta"
-                />
-              </a>
-              <a href="https://x.com/xcorpjp" class="l_footer_info-icon">
-                <img
-                  src="./WebP/icon_x.webp"
-                  alt="Xのアイコン"
-                  width="40"
-                  height="40"
-                  class="footer_info-icon__x"
-                />
-              </a>
+              <div class="l_footer_info-icon__block">
+                <a
+                  href="https://about.instagram.com/ja-jp"
+                  class="l_footer_info-icon"
+                >
+                  <!-- img記述 -->
+                  <img
+                    src="./WebP/icon_Instagram.webp"
+                    alt="インスタグラムのアイコン"
+                    width="40"
+                    height="40"
+                    class="footer_info-icon__insta"
+                  />
+                </a>
+              </div>
+              <div class="l_footer_info-icon__block">
+                <a href="https://x.com/xcorpjp" class="l_footer_info-icon">
+                  <!-- img記述 -->
+                  <img
+                    src="./WebP/icon_x.webp"
+                    alt="Xのアイコン"
+                    width="40"
+                    height="40"
+                    class="footer_info-icon__x"
+                  />
+                </a>
+              </div>
             </div>
           </div>
           <p class="l_footer-copyright">
